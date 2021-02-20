@@ -3,7 +3,6 @@
 
 namespace Binomedev\Portfolio\Models;
 
-
 use Binomedev\Portfolio\Database\Factories\CategoryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,12 +11,11 @@ use Spatie\Sluggable\SlugOptions;
 
 class Category extends Model
 {
-    use HasSlug, HasFactory;
+    use HasSlug;
+    use HasFactory;
 
 
     protected $table = 'portfolio_categories';
-
-
 
     protected static function newFactory()
     {

@@ -64,8 +64,8 @@ class Project extends Resource
             Images::make('Banner', 'banner')
                 ->enableExistingMedia()
                 ->setFileName(function ($originalFilename, $extension, $model) {
-                return md5(now()->toDateTimeString()) . '.' . $extension;
-            }),
+                    return md5(now()->toDateTimeString()) . '.' . $extension;
+                }),
 
             Images::make('Gallery', 'gallery') // second parameter is the media collection name
             ->conversionOnIndexView('thumb') // conversion used to display the image
