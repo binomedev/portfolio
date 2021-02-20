@@ -2,12 +2,13 @@
 
 namespace Binomedev\Portfolio\Database\Factories;
 
+use Binomedev\Portfolio\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/*
-class ModelFactory extends Factory
+
+class CategoryFactory extends Factory
 {
-    protected $model = YourModel::class;
+    protected $model = Category::class;
 
     public function definition()
     {
@@ -16,4 +17,4 @@ class ModelFactory extends Factory
         ];
     }
 }
-*/
+

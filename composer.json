@@ -16,8 +16,11 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "spatie/laravel-package-tools": "^1.1",
-        "illuminate/contracts": "^8.0"
+        "ebess/advanced-nova-media-library": "^3.4",
+        "illuminate/contracts": "^8.0",
+        "laravel/nova": "^3.0",
+        "spatie/laravel-medialibrary": "^9.4",
+        "spatie/laravel-package-tools": "^1.1"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
@@ -55,5 +58,11 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../nova"
+        }
+    ]
 }

@@ -2,9 +2,12 @@
 
 namespace Binomedev\Portfolio;
 
+use Binomedev\Portfolio\Nova\Category;
+use Binomedev\Portfolio\Nova\Project;
+use Illuminate\Support\Facades\Blade;
+use Laravel\Nova\Nova;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Binomedev\Portfolio\Commands\PortfolioCommand;
 
 class PortfolioServiceProvider extends PackageServiceProvider
 {
@@ -17,9 +20,19 @@ class PortfolioServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('portfolio')
-            ->hasConfigFile()
+            // ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_portfolio_table')
-            ->hasCommand(PortfolioCommand::class);
+            ->hasRoute('web')
+            ->hasMigrations(['create_portfolio_categories_table', 'create_portfolio_projects_table']);
+    }
+
+    public function packageBooted()
+    {
+        Blade::componentNamespace('Binomedev\\Portfolio\\View\\Components', $this->package->shortName());
+
+        Nova::resources([
+            Category::class,
+            Project::class,
+        ]);
     }
 }
