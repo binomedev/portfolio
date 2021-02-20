@@ -13,7 +13,10 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-
+            'name' => $this->faker->catchPhrase,
+            'summary' => $this->faker->paragraph,
+            'content' => $this->faker->paragraph(),
+            'tags' => implode(', ', $this->faker->words(random_int(1, 5))),
         ];
     }
 }

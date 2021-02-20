@@ -13,7 +13,9 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-
+            'name' => $this->faker->words,
+            'summary' => $this->faker->paragraph,
+            'tags' => implode(', ', $this->faker->words(random_int(1, 5))),
         ];
     }
 }
