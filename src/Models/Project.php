@@ -29,17 +29,29 @@ class Project extends Model implements HasMedia
         return $this->belongsTo(Category::class);
     }
 
+    public function getTagsListAttribute()
+    {
+        return collect(
+            explode(',', $this->tags)
+        )->map(function ($tag) {
+            return trim($tag);
+        });
+    }
+
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')
             ->width(130)
             ->height(130);
+
+        $this->addMediaConversion('grid')->width(360);
     }
 
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('thumb')->singleFile();
         $this->addMediaCollection('gallery');
+        $this->addMediaCollection('banner');
     }
 
     public function getSlugOptions(): SlugOptions

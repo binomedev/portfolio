@@ -54,19 +54,32 @@ class Project extends Resource
                 Textarea::make('Tags')->rows(2)->nullable(),
             ]),
             Markdown::make('Content')->nullable(),
-            new Panel('Images', [
-                Images::make('Gallery', 'gallery') // second parameter is the media collection name
-                ->conversionOnIndexView('thumb') // conversion used to display the image
-                ->withResponsiveImages()
-                    ->enableExistingMedia()
-                    ->setFileName(function ($originalFilename, $extension, $model) {
-                        return md5(now()->toDateTimeString()) . '.' . $extension;
-                    })
-                ,
-            ]),
+            new Panel('Images', $this->getGalleryField()),
             new Panel('Other', [
                 Code::make('Meta')->json(),
             ]),
+        ];
+    }
+
+    private function getGalleryField()
+    {
+        return [
+            Images::make('Banner', 'banner')
+                ->enableExistingMedia()
+                ->setFileName(function ($originalFilename, $extension, $model) {
+                return md5(now()->toDateTimeString()) . '.' . $extension;
+            }),
+
+            Images::make('Gallery', 'gallery') // second parameter is the media collection name
+            ->conversionOnIndexView('thumb') // conversion used to display the image
+                ->enableExistingMedia()
+                ->setFileName(function ($originalFilename, $extension, $model) {
+                    return md5(now()->toDateTimeString()) . '.' . $extension;
+                })
+                ->customPropertiesFields([
+                    Text::make('Title'),
+                    Textarea::make('Description'),
+                ]),
         ];
     }
 }

@@ -11,13 +11,15 @@ class ProjectsController extends Controller
 {
     public function index()
     {
-        $projects = Project::query()->orderByDesc('created_at')->paginate();
+        $projects = Project::query()->with('media')->orderByDesc('created_at')->paginate();
 
         return view('portfolio::projects.index', compact('projects'));
     }
 
     public function show(Project $project)
     {
-        return view('portfolio::projects.show', compact('project'));
+        $gallery = $project->getMedia('gallery');
+
+        return view('portfolio::projects.show', compact('project', 'gallery'));
     }
 }

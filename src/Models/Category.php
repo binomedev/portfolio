@@ -18,9 +18,20 @@ class Category extends Model
     protected $table = 'portfolio_categories';
 
 
+
     protected static function newFactory()
     {
         return new CategoryFactory();
+    }
+
+    public function scopeWhereNotRoot($query)
+    {
+        return $query->whereNotNull('parent_id');
+    }
+
+    public function scopeWhereRoot($query)
+    {
+        return $query->whereNull('parent_id');
     }
 
     public function parent()
