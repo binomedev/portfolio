@@ -3,7 +3,6 @@
 
 namespace Binomedev\Portfolio\Http\Controllers;
 
-
 use App\Http\Controllers\Controller;
 use Binomedev\Portfolio\Models\Project;
 

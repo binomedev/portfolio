@@ -2,9 +2,9 @@
 
 namespace Binomedev\Portfolio\Tests;
 
+use Binomedev\Portfolio\PortfolioServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Binomedev\Portfolio\PortfolioServiceProvider;
 
 class TestCase extends Orchestra
 {

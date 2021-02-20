@@ -3,7 +3,6 @@
 
 namespace Binomedev\Portfolio\Nova;
 
-
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
@@ -14,10 +13,8 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Panel;
 use Laravel\Nova\Resource;
 
-
 class Project extends Resource
 {
-
     public static $group = 'Portfolio';
 
     /**
@@ -40,7 +37,7 @@ class Project extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'slug', 'summary', 'content', 'tags'
+        'id', 'name', 'slug', 'summary', 'content', 'tags',
     ];
 
     public function fields(Request $request)
