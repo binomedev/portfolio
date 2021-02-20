@@ -3,13 +3,11 @@
 
 namespace Binomedev\Portfolio\Nova;
 
-
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -17,7 +15,6 @@ use Laravel\Nova\Resource;
 
 class Category extends Resource
 {
-
     public static $group = 'Portfolio';
 
     /**
@@ -40,7 +37,7 @@ class Category extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'slug', 'summary', 'tags'
+        'id', 'name', 'slug', 'summary', 'tags',
     ];
 
     public function fields(Request $request)
