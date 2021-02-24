@@ -3,12 +3,10 @@
 
 namespace Binomedev\Portfolio\Http\View\Components;
 
-
 use Illuminate\View\Component;
 
 class ProjectCard extends Component
 {
-
     public $project;
 
     /**
@@ -19,7 +17,6 @@ class ProjectCard extends Component
     {
         $this->project = $project;
     }
-
 
     public function render()
     {

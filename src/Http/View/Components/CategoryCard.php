@@ -3,12 +3,10 @@
 
 namespace Binomedev\Portfolio\Http\View\Components;
 
-
 use Illuminate\View\Component;
 
 class CategoryCard extends Component
 {
-
     public $category;
 
     /**
@@ -19,7 +17,6 @@ class CategoryCard extends Component
     {
         $this->category = $category;
     }
-
 
     public function render()
     {
