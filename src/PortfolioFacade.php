@@ -11,6 +11,6 @@ class PortfolioFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'portfolio';
+        return Portfolio::class;
     }
 }

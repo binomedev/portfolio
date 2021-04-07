@@ -44,15 +44,13 @@ class Project extends Model implements HasMedia
         $this->addMediaConversion('thumb')
             ->width(130)
             ->height(130);
-
-        $this->addMediaConversion('grid')->width(360);
     }
 
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('thumb')->singleFile();
         $this->addMediaCollection('gallery');
-        $this->addMediaCollection('banner');
+        $this->addMediaCollection('banner')->singleFile();
     }
 
     public function getSlugOptions(): SlugOptions

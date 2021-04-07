@@ -74,8 +74,9 @@ class Project extends Resource
                     return md5(now()->toDateTimeString()) . '.' . $extension;
                 })
                 ->customPropertiesFields([
-                    Text::make('Title'),
-                    Textarea::make('Description'),
+                    Text::make('Title')->nullable(),
+                    Textarea::make('Description')->nullable()->rows(2),
+                    Text::make('Tags')->nullable()->help('')
                 ]),
         ];
     }

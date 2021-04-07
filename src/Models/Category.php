@@ -6,6 +6,7 @@ namespace Binomedev\Portfolio\Models;
 use Binomedev\Portfolio\Database\Factories\CategoryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -13,7 +14,6 @@ class Category extends Model
 {
     use HasSlug;
     use HasFactory;
-
 
     protected $table = 'portfolio_categories';
 
@@ -46,6 +46,7 @@ class Category extends Model
     {
         return $this->hasMany(Project::class);
     }
+
 
     public function getSlugOptions(): SlugOptions
     {
