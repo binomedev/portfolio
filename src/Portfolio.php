@@ -23,15 +23,12 @@ class Portfolio
         return $this->getConfigItem('controllers', $name);
     }
 
-
     private function getConfigItem($key, $name = null)
     {
-
         if (is_null($name)) {
             return config("portfolio.{$key}");
         }
 
         return config("portfolio.{$key}.{$name}");
     }
-
 }

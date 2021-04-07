@@ -7,7 +7,6 @@ use Laravel\Nova\Nova;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-
 class PortfolioServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
@@ -35,7 +34,7 @@ class PortfolioServiceProvider extends PackageServiceProvider
 
         Nova::resources(PortfolioFacade::resources());
 
-        if($this->app->runningInConsole()){
+        if ($this->app->runningInConsole()) {
             $this->publishes([
                 $this->package->basePath("/../routes/web.php") => base_path("routes/{$this->package->shortName()}.php"),
             ], "{$this->package->shortName()}-routes");

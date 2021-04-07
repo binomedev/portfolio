@@ -76,7 +76,7 @@ class Project extends Resource
                 ->customPropertiesFields([
                     Text::make('Title')->nullable(),
                     Textarea::make('Description')->nullable()->rows(2),
-                    Text::make('Tags')->nullable()->help('')
+                    Text::make('Tags')->nullable()->help(''),
                 ]),
         ];
     }
