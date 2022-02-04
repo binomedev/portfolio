@@ -20,7 +20,7 @@ class ProjectsController extends Controller
 
     public function show(Project $project)
     {
-        $gallery = $project->getMedia('gallery')->load('category');
+        $gallery = $project->load('category')->getMedia('gallery');
 
         return view('portfolio::projects.show', compact('project', 'gallery'));
     }
